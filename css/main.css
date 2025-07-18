@@ -1,21 +1,21 @@
 body {
-    background-image: linear-gradient(  rgba(0, 0, 0, 0.8)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8)),
         url('../image/T_MySQLCrud.jpg');
     width: 100%;
     height: 100vh;
     color: #fff;
     margin: 0;
- /* url(../image/images\ \(1\).jpg),linear-gradient(#5c585857); */
-background-position: center center;
-background-size: cover;
- /* width: 100%;
+    /* url(../image/images\ \(1\).jpg),linear-gradient(#5c585857); */
+    background-position: center center;
+    background-size: cover;
+    /* width: 100%;
  height: 100vh;  */
 }
 
 table {
     background-color: white;
-     color: black;
-     border-radius: 5px;
+    color: black;
+    border-radius: 5px;
 }
 
 .text-center {
@@ -40,6 +40,7 @@ table {
     flex-wrap: wrap;
     align-items: center;
     padding: 30px;
+    margin-top: 30px;
 }
 
 .curd-head .inputs input {
@@ -136,6 +137,41 @@ th {
     background-color: rgb(241, 241, 40);
     padding: 10px;
 }
-tr td{
+
+tr td {
     padding: 5px;
+}
+
+td {
+    width: 25%;
+}
+tbody input{
+    width: 100px;
+}
+@media screen and (max-width: 800px) {
+    .inputs {
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .curd-head .inputs {
+        padding: 25px;
+    }
+
+    .curd-head .inputs input {
+        width: 50%;
+
+    }
+
+    table {
+        margin: 10px auto;
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+tbody input{
+    width: 140px;
+}
 }
