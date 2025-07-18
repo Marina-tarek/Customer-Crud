@@ -1,59 +1,67 @@
-body{
+body {
     margin: 0;
 }
-.text-center{
+
+.text-center {
     text-align: center;
 }
 
-.curd-img{
+.curd-img {
     display: flex;
     justify-content: center;
     height: 30vh;
 }
-.curd-head .inputs{
+
+.curd-head .inputs {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content:center;
     align-items: center;
-    padding: 40px;
+    padding: 30px;
 }
-.curd-head .search{
-    text-align: right;
-    margin-top: 50px;
-    margin-right: 20px;
+.curd-head .inputs input{
+    padding: 5px;
+    width: 150px;
 }
-.curd-head label,.curd-head input{
+
+.curd-head label,
+.curd-head input {
     margin: 0 10px;
 }
 
-.curd-head input:focus{
+.curd-head input:focus {
     border: 0;
-  outline: 1px solid  dodgerblue;
+    outline: 1px solid dodgerblue;
 }
-.curd-head button{
+
+.curd-head button {
     background-color: dodgerblue;
     color: white;
     border: 0;
     border-radius: 10px;
-    padding: 10px;
-    margin-left: 20px;
+    padding: 8px;
+    margin-left: 10px;
     cursor: pointer;
 }
-table, th, td {
-  border: 1px solid black;
+
+table,
+th,
+td {
+    border: 1px solid black;
 }
-.crud-content{
+
+.crud-content {
     width: 100%;
-    /* display: flex;
-    justify-content: center; */
+
 }
-table{
-    margin: 0 auto;
+
+table {
+    margin: 10px auto;
     width: 90%;
 }
 
-tr button{
-      background-color: dodgerblue;
+tr button {
+    background-color: dodgerblue;
     color: white;
     border: 0;
     border-radius: 10px;
@@ -62,15 +70,44 @@ tr button{
     margin-left: 10px;
     cursor: pointer;
 }
-.btn-delete{
+
+.btn-delete {
     background-color: red;
     color: white;
 }
-.edit{
-    background-color:rgba(243, 243, 7, 0.993);
+
+.edit {
+    background-color: rgba(243, 243, 7, 0.993);
 }
-th{
+
+th {
     background-color: rgb(64, 156, 248);
     color: white;
 }
 
+.search {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.search input {
+    padding: 5px;
+    width: 25%;
+    /* margin-left: 20px; */
+}
+
+#search {
+    padding: 5px;
+}
+
+.display-none{
+    display: none;
+}
+
+#saveUpdate{
+    background-color: rgb(241, 241, 40);
+    padding: 10px;
+}
