@@ -44,19 +44,19 @@ function addCustomer() {
     var people = {
         fname: firstName.value,
         lname: lastName.value,
-        age: Age.value
-
+        age: Age.value,
+        isEdit: false
     }
     console.log(firstName.value);
-    
-    if((firstName.value!="") && ( lastName.value !="") &&(Age.value !="")){
-    console.log(people);
-    custmerList.push(people)
-    console.log(custmerList);
-    clearInputs()
-    showCstomer()
-    localStorage.setItem("customer", JSON.stringify(custmerList))
-    }else{
+
+    if ((firstName.value != "") && (lastName.value != "") && (Age.value != "")) {
+        console.log(people);
+        custmerList.push(people)
+        console.log(custmerList);
+        clearInputs()
+        showCstomer()
+        localStorage.setItem("customer", JSON.stringify(custmerList))
+    } else {
         alert("you Must fill all information detalies")
     }
 
@@ -71,10 +71,9 @@ function clearInputs() {
 function showCstomer() {
     var cartona = '';
     for (let i = 0; i < custmerList.length; i++) {
-        cartona += ` <tr>
-<td id="one" class="info">${custmerList[i].fname}<input type="text" value="${custmerList[i].fname}" class="display-none"></td>
-<td id="two" class="info">${custmerList[i].lname}<input type="text" value="${custmerList[i].lname}" class="display-none"></td>
-<td id="three" class="info">${custmerList[i].age}<input type="text" value="${custmerList[i].age}" class="display-none"></td>
+        cartona += ` <tr><td id="one" class="info"><div>${custmerList[i].fname}</div><input id="f${i}" type="text" value="${custmerList[i].fname}" class="test display-none"></td>
+<td id="two" class="info"><div>${custmerList[i].lname}</div><input id="l${i}" type="text" value="${custmerList[i].lname}" class="test display-none"></td>
+<td id="three" class="info"><div>${custmerList[i].age}</div><input id="a${i}"  type="text" value="${custmerList[i].age}" class="test display-none"></td>
 <td class="text-center"><button onclick="editInformation(${i})" id="btn-edit">Edit <i class="fa-solid fa-pen-to-square"></i></button>
 <button onclick="saveupdating(${i})"id="btn-save" class="display-none">Save <i class="fa-solid fa-floppy-disk"></i></button>
 <button class="btn-delete" onclick="deleteCustomer(${i})">Delete<i class="fa-solid fa-trash"></i></button></td>
@@ -96,7 +95,7 @@ function searchCustomer() {
     console.log(searchInput.value);
     cartona = ``
     for (let i = 0; i < custmerList.length; i++) {
-        if (custmerList[i].fname.toLowerCase().includes(term.toLowerCase())== true ||custmerList[i].lname.toLowerCase().includes(term.toLowerCase())== true) {
+        if (custmerList[i].fname.toLowerCase().includes(term.toLowerCase()) == true || custmerList[i].lname.toLowerCase().includes(term.toLowerCase()) == true) {
             cartona += ` <tr>
 <td class="info">${custmerList[i].fname}</td>
 <td class="info">${custmerList[i].lname}</td>
@@ -108,7 +107,7 @@ function searchCustomer() {
             isValid = true
         } else {
             isValid = false
-        } 
+        }
     }
     document.querySelector("tbody").innerHTML = cartona
     if (searchInput.value == '') {
@@ -117,43 +116,45 @@ function searchCustomer() {
         custmerList = JSON.parse(localStorage.getItem("customer"))
         showCstomer()
     }
-    if(isValid== false){
- alert("Not found in First name and last name ")
-  showCstomer()
+    if (isValid == false) {
+        alert("Not found in First name and last name ")
+        showCstomer()
     }
-clearSearch()
+    clearSearch()
 }
 
 
 function clearSearch() {
-    searchInput.value=null
+    searchInput.value = null
 }
 
-var updateIndex;
+////////// var updateIndex;
 function editInformation(x) {
-updateIndex=x;
+    ///////// updateIndex=x;
     var btnEdit = document.querySelectorAll("#btn-edit")[x]
+var btnSave = document.querySelectorAll("#btn-save")[x]
+ btnEdit.classList.add("display-none")
+ btnSave.classList.remove("display-none")
+ var row = document.querySelectorAll("tbody tr")[x]
+var ar=[0,1,2]
+var tabledesc;
+var tableInput;
+for (let i = 0; i < ar.length; i++) {
+tabledesc=row.querySelectorAll("div")[i]
+console.log(tabledesc);
+ tableInput=tabledesc.nextElementSibling
+console.log(tableInput);
+    tabledesc.classList.add("display-none")
+    tableInput.classList.remove("display-none")
+}
 
-
-    // btnEdit.classList.add("display-none")
-    // btnSave.classList.remove("display-none")
-    firstName.value = custmerList[x].fname
-    lastName.value = custmerList[x].lname
-    Age.value = custmerList[x].age
-    btnAdd.classList.add("display-none")
-    saveUpdate.classList.remove("display-none")
-    // var one=document.querySelectorAll("#one")[btn]
-    // console.log(one.innerText);
-    // var two=document.querySelectorAll("#two")[btn]
-    // console.log(two.innerText);
-    // var three=document.querySelectorAll("#three")[btn]
-    // console.log(three.innerText);
-    // var inputs=document.querySelectorAll("input")
-    // var input=document.getElementsByTagName("td")[btn]
-    // console.log(input.innerText);
-
+    //////////////// // firstName.value = custmerList[x].fname
+    //////////////// lastName.value = custmerList[x].lname
+    //////////// Age.value = custmerList[x].age
+       ////btnAdd.classList.add("display-none")
+    /////////saveUpdate.classList.remove("display-none")
+    
     //     for (let i = 0; i < custmerList.length; i++) {
-    //  var row =document.querySelectorAll("tbody tr ")[btn]
     //     var input=document.getElementsByTagName("td")[btn]
 
     //     }
@@ -163,26 +164,54 @@ updateIndex=x;
     // rowInput.inputs.classList.remove("display-none")
     //     console.log(btn);
 
-    //     column
 }
 
 
-function saveUpdating() {
-    console.log("hello");
-    btnAdd.classList.remove("display-none")
-    saveUpdate.classList.add("display-none")
-    custmerList[updateIndex].fname = firstName.value
-    custmerList[updateIndex].lname = lastName.value
-    custmerList[updateIndex].age = Age.value
-    showCstomer()
-    localStorage.setItem("customer", JSON.stringify(custmerList))
-    clearInputs()
+function saveupdating(x) {
+    var btnEdit = document.querySelectorAll("#btn-edit")[x]
+var btnSave = document.querySelectorAll("#btn-save")[x]
+ btnEdit.classList.remove("display-none")
+ btnSave.classList.add("display-none")
+
+  var row = document.querySelectorAll("tbody tr")[x]
+var ar=[0,1,2]
+var tabledesc;
+var tableInput;
+for (let i = 0; i < ar.length; i++) {
+tabledesc=row.querySelectorAll("div")[i]
+console.log(tabledesc);
+ tableInput=tabledesc.nextElementSibling
+console.log(tableInput);
+    tabledesc.classList.remove("display-none")
+    tableInput.classList.add("display-none")
+
+    console.log(row.querySelectorAll(".test")[i].value);
+
+}
+    custmerList[x].fname = row.querySelectorAll(".test")[0].value
+   custmerList[x].lname = row.querySelectorAll(".test")[1].value
+    custmerList[x].age = row.querySelectorAll(".test")[2].value
+showCstomer()
+
+
+   //////////////////////////////// console.log("hello");
+   /////////////////////////////// btnAdd.classList.remove("display-none")
+    ///////////////////////////saveUpdate.classList.add("display-none")
+    ///////////////////custmerList[updateIndex].fname = firstName.value
+   ///////////////// custmerList[updateIndex].lname = lastName.value
+    //////////////////////////custmerList[updateIndex].age = Age.value
+    /////////////////////showCstomer()
+    ///////////////////localStorage.setItem("customer", JSON.stringify(custmerList))
+   /////////////////// clearInputs()
     // var btnEdit = document.querySelectorAll("#btn-edit")
     // var btnSave = document.querySelectorAll("#btn-save")
     // console.log(x);
     // btnEdit[x].classList.remove("display-none")
     // btnSave[x].classList.add("display-none")
 
+
+
+ 
 
 }
 
