@@ -1,10 +1,11 @@
 var content1 = document.createElement("div");
 content1.innerHTML = `
 <div class="curd-head">
+<div class="main-title"><h1>MiniCRM</h1> </div>
 <div class="search"> <input  type="text"  class="search-input" placeholder="search only by one letter character.."> <button class="btn-search" onclick="searchCustomer()">Search <i class="fa-solid fa-magnifying-glass"></i></button> </div> 
-<div class="inputs"><label for="Fname"> First Name : </label><input type="text" id="Fname" >
-<label for="Lname"> last Name : </label><input type="text" id="Lname">
-<label for="age">Age : </label> <input type="number" id="age"> 
+<div class="inputs"><div class="d-flex"><label for="Fname"> First Name</label><input type="text" id="Fname" ></div>
+<div class="d-flex"><label for="Lname"> last Name</label><input type="text" id="Lname"></div>
+<div class="d-flex"><label for="age">Age</label> <input type="number" id="age"> </div>
 <button class="btn-add">Add <i class="fa-solid fa-user-plus"></i></button>
 </div>
 </div>`
@@ -91,12 +92,12 @@ function deleteCustomer(deleteIndex) {
 }
 
 function searchCustomer() {
-    isValid = false;
-    var term = searchInput.value;
+  var  isValid = false;
+    var term = searchInput.value.toLowerCase();
     console.log(searchInput.value);
     cartona = ``
     for (let i = 0; i < custmerList.length; i++) {
-        if (custmerList[i].fname.toLowerCase().includes(term.toLowerCase()) == true && custmerList[i].lname.toLowerCase().includes(term.toLowerCase()) == true) {
+        if (custmerList[i].fname.toLowerCase().includes(term) === true || custmerList[i].lname.toLowerCase().includes(term) === true) {
             cartona += ` <tr>
 <td class="info"><div>${custmerList[i].fname}</div><input type="text" value="${custmerList[i].fname}" class="test display-none"></td>
 <td class="info"><div>${custmerList[i].lname}</div><input type="text" value="${custmerList[i].lname}" class="test display-none"></td>
@@ -105,21 +106,23 @@ function searchCustomer() {
 <button onclick="saveUpdating(${i})" id="btn-save" class="display-none">Save <i class="fa-solid fa-floppy-disk"></i></button>
 <button class="btn-delete" onclick="deleteCustomer(${i})">Delete <i class="fa-solid fa-trash"></i></button></td>
 </tr>`
-            isValid = true
-        } else {
-            isValid = false
-        }
+            isValid = true}
+        // } else {
+        //     isValid = false
+        // }
     }
-    document.querySelector("tbody").innerHTML = cartona
-    if (searchInput.value == '') {
+    if(isValid === true){
+        document.querySelector("tbody").innerHTML = cartona
+    }
+    if (searchInput.value === '') {
         alert("This input is empty")
         console.log(custmerList);
         custmerList = JSON.parse(localStorage.getItem("customer"))
         showCstomer()
     }
-    
-    if (isValid == false) {
-        alert("Not found in First name and last name ")
+
+    if (isValid === false) {
+        alert("Not found in list")
         showCstomer()
     }
     clearSearch()
@@ -130,9 +133,7 @@ function clearSearch() {
     searchInput.value = null
 }
 
-////////// var updateIndex;
 function editInformation(x) {
-    ///////// updateIndex=x;
     var btnEdit = document.querySelectorAll("#btn-edit")[x]
     var btnSave = document.querySelectorAll("#btn-save")[x]
     btnEdit.classList.add("display-none")
@@ -149,7 +150,8 @@ function editInformation(x) {
         tabledesc.classList.add("display-none")
         tableInput.classList.remove("display-none")
     }
-
+    ////////// var updateIndex;
+///////// updateIndex=x;
     //////////////// // firstName.value = custmerList[x].fname
     //////////////// lastName.value = custmerList[x].lname
     //////////// Age.value = custmerList[x].age
@@ -186,15 +188,12 @@ function saveupdating(x) {
         console.log(tableInput);
         tabledesc.classList.remove("display-none")
         tableInput.classList.add("display-none")
-
         console.log(row.querySelectorAll(".test")[i].value);
-
     }
     custmerList[x].fname = row.querySelectorAll(".test")[0].value
     custmerList[x].lname = row.querySelectorAll(".test")[1].value
     custmerList[x].age = row.querySelectorAll(".test")[2].value
     showCstomer()
-
 
     //////////////////////////////// console.log("hello");
     /////////////////////////////// btnAdd.classList.remove("display-none")
@@ -211,17 +210,12 @@ function saveupdating(x) {
     // btnEdit[x].classList.remove("display-none")
     // btnSave[x].classList.add("display-none")
 
-
-
-
-
 }
 
 
 
 function validateAge(ageInput) {
     const ageRegex = /^(0?[1-9]|[1-9][0-9]|1[01][0-9]|120)$/;
-
     if (ageRegex.test(ageInput)) {
         return true;
     } else {

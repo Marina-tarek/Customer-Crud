@@ -1,15 +1,43 @@
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6)),
         url('../image/T_MySQLCrud.jpg');
-    width: 100%;
+    /* width: 100%; */
     height: 100vh;
     color: #fff;
     margin: 0;
-    /* url(../image/images\ \(1\).jpg),linear-gradient(#5c585857); */
     background-position: center center;
     background-size: cover;
-    /* width: 100%;
- height: 100vh;  */
+    background-repeat: no-repeat;
+
+
+}
+.d-flex{
+    display: flex;
+}
+.main-title{
+    padding: 20px;
+}
+.main-title h1{
+    text-align: center;
+    font-size: 50px;
+}
+.search {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.search input {
+    padding: 5px;
+    width: 20%;
+    border-radius: 10px;
+    /* margin-left: 20px; */
+}
+
+#search {
+    padding: 5px;
 }
 
 table {
@@ -41,12 +69,13 @@ table {
     align-items: center;
     padding: 30px;
     margin-top: 30px;
+       
 }
 
 .curd-head .inputs input {
     padding: 5px;
-    width: 150px;
     border-radius: 10px;
+     border: 0;
 }
 
 .curd-head label,
@@ -83,6 +112,7 @@ td {
 table {
     margin: 10px auto;
     width: 90%;
+    
 }
 
 tr button {
@@ -108,25 +138,9 @@ tr button {
 th {
     background-color: rgb(64, 156, 248);
     color: white;
-}
+    padding: 15px;
+    font-size: 25px;
 
-.search {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-top: 50px;
-    margin-right: 20px;
-}
-
-.search input {
-    padding: 5px;
-    width: 20%;
-    border-radius: 10px;
-    /* margin-left: 20px; */
-}
-
-#search {
-    padding: 5px;
 }
 
 .display-none {
@@ -140,6 +154,7 @@ th {
 
 tr td {
     padding: 5px;
+    font-size: 20px;
 }
 
 td {
@@ -148,7 +163,14 @@ td {
 tbody input{
     width: 100px;
 }
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 890px) {
+    body{
+height: fit-content;
+    }
+     label{
+width: 20%;
+     }
     .inputs {
         justify-content: center;
         flex-direction: column;
@@ -166,12 +188,48 @@ tbody input{
 
     table {
         margin: 10px auto;
-        width: 60%;
+        width: 95%;
+    }
+    .d-flex{
+        width: 80%;
     }
 }
 
-@media screen and (min-width: 800px) {
-tbody input{
-    width: 140px;
+@media screen and (max-width: 750px) {
+    .d-flex{
+        width: 70%;
+    }
+    label{
+        width: 35%;
+    }
+        .curd-head .inputs input{
+            width: 45%;
+        }
+        .search input {
+            width: 45%;
+        }
+
 }
+@media screen and (max-width: 500px) {
+    .main-title h1{
+        margin: 0;
+    }
+    .curd-head .inputs{
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .d-flex{
+        width: 100%;
+    }
+    label{
+        width: 40%;
+        text-align: center;
+    }
+        .curd-head .inputs input{
+            width: 40%;
+        }
+
+        tbody td>div{
+            width: 10%;
+        }
 }
