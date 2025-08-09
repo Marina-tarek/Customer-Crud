@@ -11,16 +11,20 @@ body {
 
 
 }
-.d-flex{
+
+.d-flex {
     display: flex;
 }
-.main-title{
+
+.main-title {
     padding: 20px;
 }
-.main-title h1{
+
+.main-title h1 {
     text-align: center;
     font-size: 50px;
 }
+
 .search {
     display: flex;
     justify-content: end;
@@ -69,13 +73,13 @@ table {
     align-items: center;
     padding: 30px;
     margin-top: 30px;
-       
+
 }
 
 .curd-head .inputs input {
     padding: 5px;
     border-radius: 10px;
-     border: 0;
+    border: 0;
 }
 
 .curd-head label,
@@ -112,7 +116,7 @@ td {
 table {
     margin: 10px auto;
     width: 90%;
-    
+
 }
 
 tr button {
@@ -160,78 +164,97 @@ tr td {
 td {
     width: 25%;
 }
-tbody input{
+
+tbody input {
     width: 100px;
 }
-@media screen and (max-width: 500px){
-    body{
-        height: fit-content;
+
+@media screen and (max-width: 500px) {
+    body {
+        height: 100vh;
+        max-height: 200vh;
     }
-th{
-    font-size: 16px;
-}
-tbody input{
-    width: 40px;
-}
-tr button{
-    margin: 0;
-    padding: 5px;
-    width: 47px;
-}
-    .main-title h1{
+
+    th {
+        font-size: 16px;
+    }
+
+    tbody input {
+        width: 40px;
+    }
+
+    tr button {
+        margin: 0;
+        padding: 5px;
+        width: 47px;
+    }
+
+    .main-title h1 {
         margin: 0;
     }
-    .curd-head .inputs{
+
+    .curd-head .inputs {
         padding: 0;
         margin-bottom: 20px;
     }
-    .d-flex{
+
+    .d-flex {
         width: 100%;
         padding-bottom: 20px;
     }
-    label{
+
+    label {
         width: 40%;
         text-align: center;
     }
-        .curd-head .inputs input{
-            width: 40%;
-        }
 
-        /* tbody td>div{
+    .curd-head .inputs input {
+        width: 40%;
+    }
+
+    /* tbody td>div{
             width: 10%;
         } */
 }
+
 @media screen and (min-width: 500px) {
 
-    .d-flex{
-                padding-bottom: 20px;
+    .d-flex {
+        padding-bottom: 20px;
         width: 87%;
     }
-    label{
+
+    label {
         width: 35%;
     }
-    .curd-head .inputs{
-flex-direction: column;
+
+    .curd-head .inputs {
+        flex-direction: column;
     }
-        .curd-head .inputs input{
-            width: 45%;
-        }
-        .search input {
-            width: 45%;
-        }
+
+    .curd-head .inputs input {
+        width: 45%;
+    }
+
+    .search input {
+        width: 45%;
+    }
 
 }
+
 @media screen and (min-width: 890px) {
- body{
-height: 100vh;
-max-height: 200vh;
- }
-     label{
-width: 20%;
-     }
+    body {
+        height: 100vh;
+        max-height: 200vh;
+    }
+
+    label {
+        width: 20%;
+    }
+
     .curd-head .inputs {
         justify-content: center;
-        
+
         gap: 15px;
         padding: 25px;
     }
@@ -245,28 +268,34 @@ width: 20%;
         margin: 10px auto;
         width: 95%;
     }
-    .d-flex{
+
+    .d-flex {
         width: 80%;
     }
 }
-@media screen and (min-width: 950px){
-        .curd-head .inputs{
+
+@media screen and (min-width: 950px) {
+    .curd-head .inputs {
         flex-direction: row;
     }
-    .d-flex{
-width: 40%;
+
+    .d-flex {
+        width: 40%;
     }
-        label {
+
+    label {
         width: 30%;
     }
 }
-@media screen and (min-width: 1200px){
+
+@media screen and (min-width: 1200px) {
 
 
-  .d-flex{
-    width: 28%;
-  }
-      .search input{
+    .d-flex {
+        width: 28%;
+    }
+
+    .search input {
         width: 20%;
-      }
+    }
 }
