@@ -218,6 +218,10 @@ tbody input {
 }
 
 @media screen and (min-width: 500px) {
+    body {
+        height: 100vh;
+        max-height: 200vh;
+    }
 
     .d-flex {
         padding-bottom: 20px;
@@ -243,10 +247,6 @@ tbody input {
 }
 
 @media screen and (min-width: 890px) {
-    body {
-        height: 100vh;
-        max-height: 200vh;
-    }
 
     label {
         width: 20%;
