@@ -172,7 +172,7 @@ tbody input {
 @media screen and (max-width: 500px) {
     body {
         height: 100vh;
-        max-height: 200vh;
+        min-height: 130vh;
     }
 
     th {
