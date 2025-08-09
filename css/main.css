@@ -2,7 +2,7 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6)),
         url('../image/T_MySQLCrud.jpg');
     /* width: 100%; */
-    height: 100vh;
+    /* height: 100vh; */
     color: #fff;
     margin: 0;
     background-position: center center;
@@ -163,21 +163,76 @@ td {
 tbody input{
     width: 100px;
 }
-
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 500px){
     body{
-height: fit-content;
+        height: fit-content;
     }
+th{
+    font-size: 16px;
+}
+tbody input{
+    width: 40px;
+}
+tr button{
+    margin: 0;
+    padding: 5px;
+    width: 47px;
+}
+    .main-title h1{
+        margin: 0;
+    }
+    .curd-head .inputs{
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .d-flex{
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    label{
+        width: 40%;
+        text-align: center;
+    }
+        .curd-head .inputs input{
+            width: 40%;
+        }
+
+        /* tbody td>div{
+            width: 10%;
+        } */
+}
+@media screen and (min-width: 500px) {
+
+    .d-flex{
+                padding-bottom: 20px;
+        width: 87%;
+    }
+    label{
+        width: 35%;
+    }
+    .curd-head .inputs{
+flex-direction: column;
+    }
+        .curd-head .inputs input{
+            width: 45%;
+        }
+        .search input {
+            width: 45%;
+        }
+
+}
+@media screen and (min-width: 890px) {
+ body{
+height: 100vh;
+max-height: 200vh;
+ }
      label{
 width: 20%;
      }
-    .inputs {
-        justify-content: center;
-        flex-direction: column;
-        gap: 15px;
-    }
-
     .curd-head .inputs {
+        justify-content: center;
+        
+        gap: 15px;
         padding: 25px;
     }
 
@@ -194,42 +249,24 @@ width: 20%;
         width: 80%;
     }
 }
-
-@media screen and (max-width: 750px) {
+@media screen and (min-width: 950px){
+        .curd-head .inputs{
+        flex-direction: row;
+    }
     .d-flex{
-        width: 70%;
+width: 40%;
     }
-    label{
-        width: 35%;
+        label {
+        width: 30%;
     }
-        .curd-head .inputs input{
-            width: 45%;
-        }
-        .search input {
-            width: 45%;
-        }
-
 }
-@media screen and (max-width: 500px) {
-    .main-title h1{
-        margin: 0;
-    }
-    .curd-head .inputs{
-        padding: 0;
-        margin-bottom: 20px;
-    }
-    .d-flex{
-        width: 100%;
-    }
-    label{
-        width: 40%;
-        text-align: center;
-    }
-        .curd-head .inputs input{
-            width: 40%;
-        }
+@media screen and (min-width: 1200px){
 
-        tbody td>div{
-            width: 10%;
-        }
+
+  .d-flex{
+    width: 28%;
+  }
+      .search input{
+        width: 20%;
+      }
 }
